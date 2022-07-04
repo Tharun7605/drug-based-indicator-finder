@@ -1,15 +1,48 @@
-import SearchIcon from '@mui/icons-material/Search';
+import React from 'react';
 import "../style/SearchBar.css";
-function SearchBar({placeholder, data}) {
-	return (
-		<div className="search">
-			<div className="searchBar">
-				<input type="text" placeholder={placeholder} />
-				<div className="searchIcon">
-					<SearchIcon />
+import Axios from 'axios'
+export default class SearchBar extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			drugs: [],
+			value: ''
+		}
+		this.handleChange = this.handleChange.bind(this);
+	}
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+	componentDidMount() {
+		Axios.get("http://localhost:3001/getDrugs").then((response) => response.data).then(data => {
+			this.setState({drugs: data})
+		})
+	}
+	render() {
+		return (
+			<div className="search">
+				<div className="searchBar">
+					<input type="text" value={this.state.value} onChange={this.handleChange}></input>
+				</div>
+				<div className='results-table'>
+					<table>
+						<tr>
+							<th>Drug</th>
+							<th>Disease Name</th>
+							<th>Ground Truth</th>
+						</tr>
+						{this.state.drugs.map((drug) => {
+							return (
+								<tr>
+									<td>Drug Name: {drug.drug}</td>
+									<td>Disease Name: {drug.disease}</td>
+									<td>Ground Truth: {drug.ground_truth ? "true" : "false"}</td>
+								</tr>
+							)
+						})}
+					</table>
 				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
-export default SearchBar;
