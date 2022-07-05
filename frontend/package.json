@@ -10,7 +10,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
-    "nferx-core-ui": "git+https://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:x-oauth-basic@github.com/lumenbiomics/nferx-core-ui.git",
+    "nferx-core-ui": "git+https://<PAT>:x-oauth-basic@github.com/lumenbiomics/nferx-core-ui.git",
     "react": "^16.8.0",
     "react-dom": "^16.13.0",
     "react-scripts": "5.0.1",
