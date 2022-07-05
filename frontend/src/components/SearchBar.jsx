@@ -26,20 +26,24 @@ export default class SearchBar extends React.Component {
 				</div>
 				<div className='results-table'>
 					<table>
-						<tr>
-							<th>Drug</th>
-							<th>Disease Name</th>
-							<th>Ground Truth</th>
-						</tr>
-						{this.state.drugs.map((drug) => {
-							return (
-								<tr>
-									<td>Drug Name: {drug.drug}</td>
-									<td>Disease Name: {drug.disease}</td>
-									<td>Ground Truth: {drug.ground_truth ? "true" : "false"}</td>
-								</tr>
-							)
-						})}
+						<thead>
+							<tr>
+								<th>Drug</th>
+								<th>Disease Name</th>
+								<th>Ground Truth</th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.state.drugs.map((drug) => {
+								return (
+									<tr>
+										<td>Drug Name: {drug.drug}</td>
+										<td>Disease Name: {drug.disease}</td>
+										<td>Ground Truth: {drug.ground_truth ? "true" : "false"}</td>
+									</tr>
+								)
+							})}
+						</tbody>
 					</table>
 				</div>
 			</div>
