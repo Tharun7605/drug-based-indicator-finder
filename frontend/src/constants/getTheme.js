@@ -1,10 +1,17 @@
-import { createTheme } from '@material-ui/core/styles'
-import { orange } from '@material-ui/core/colors'
+import { config } from '../Config'
 
-export const getTheme = createTheme({
-	palette: {
-		secondary: {
-			main: orange[500]
-		}
-	}
-})
+export function getTheme(theme) {
+  return {
+    sidebarWidth: 280,
+    palette: {
+      primary: {
+        main: config.primaryColor,
+      },
+      background: {
+        default: theme.palette.background.default,
+        level2: theme.palette.background.default,
+      },
+    },
+    maxContentWidth: theme.breakpoints.values.md,
+  }
+}

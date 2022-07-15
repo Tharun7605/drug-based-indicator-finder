@@ -1,8 +1,9 @@
+import purple from '@material-ui/core/colors/purple'
 const config = {
 	appName: 'Drug Indicator Display',
 	homepage: '/main',
-	primaryColor: '#3367d6',
 	appNameSubText: 'Powered by nference',
+	primaryColor: purple[500],
   }
   
   export default config
