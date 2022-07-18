@@ -2,7 +2,7 @@
 	margin-top: 105px;
 	display: flex;
   }
-  
+
   .search input {
 	background-color: white;
 	border: 0;
@@ -14,7 +14,7 @@
 	height: 30px;
 	width: 300px;
   }
-  
+
   .searchIcon {
 	height: 60px;
 	width: 50px;
@@ -22,7 +22,7 @@
 	display: grid;
 	place-items: center;
   }
-  
+
   input:focus {
 	outline: none;
   }
