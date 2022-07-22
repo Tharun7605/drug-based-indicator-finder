@@ -1,14 +1,14 @@
 import Axios from 'axios'
-import React, {useEffect, useContext} from 'react'
-import {QueryContext} from '../Contexts/QueryContext'
-function ResultsTable() {
-	const {query, drug, setDrug} = useContext(QueryContext)
-	useEffect(()  => {
+import React, { useEffect, useContext } from 'react'
+import { QueryContext } from '../Contexts/QueryContext'
+export default function ResultsTable() {
+	const { query, drug, setDrug } = useContext(QueryContext)
+	useEffect(() => {
 		Axios.get(`http://localhost:3001/getDrugs?drug=${query}`).then((response) => response.data).then((data) => setDrug(data))
 	}, [query]);
 	const listItems = drug.map((drug) =>
 	<tr>
-	<td>{drug.disease.replace(/_/g,' ')}</td>
+	<td>{drug.disease.replace(/_/g, ' ')}</td>
 	<td>{drug.ground_truth ? "true" : "false"}</td>
 	</tr>)
 	return (
@@ -28,4 +28,4 @@ function ResultsTable() {
 		</div>
 		);
 	}
-	export default ResultsTable
+	

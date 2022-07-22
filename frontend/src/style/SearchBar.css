@@ -1,9 +1,9 @@
 .searchInputs {
 	margin-top: 105px;
 	display: flex;
-  }
+}
 
-  .search input {
+.search input {
 	background-color: white;
 	border: 0;
 	border-radius: 2px;
@@ -13,23 +13,23 @@
 	padding: 15px;
 	height: 30px;
 	width: 300px;
-  }
+}
 
-  .searchIcon {
+.searchIcon {
 	height: 60px;
 	width: 50px;
 	background-color: white;
 	display: grid;
 	place-items: center;
-  }
+}
 
-  input:focus {
+input:focus {
 	outline: none;
-  }
-  .searchIcon svg {
+}
+.searchIcon svg {
 	font-size: 35px;
-  }
+}
 
-  .searchBar {
+.searchBar {
 	display: flex;
-  }
+}

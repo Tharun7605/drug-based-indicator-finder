@@ -4,7 +4,7 @@ const config = {
 	homepage: '/main',
 	appNameSubText: 'Powered by nference',
 	primaryColor: purple[500],
-  }
-  
-  export default config
-  export { config }
+}
+
+export default config
+export { config }
