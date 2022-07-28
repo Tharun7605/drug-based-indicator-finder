@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
-import './style/App.css';
-import SearchBar from './components/SearchBar';
-import NferenceThing from './components/NferenceTable'
-import { QueryProvider } from 'nferx-core-ui'
-import { QueryContext } from '../src/Contexts/QueryContext'
+import React from 'react'
+import Routes from './routes/Routes'
+import AppBar from './components/AppBar/AppBar'
+import {
+  QueryProvider,
+  AppContent,
+  GlobalStylesProvider,
+  SORT_DESCENDING,
+} from 'nferx-core-ui'
+
 function App() {
-	const [query, setQuery] = useState('')
-	const [drug, setDrug] = useState([]);
-	const [showTable, setShowTable] = useState(false);
-	return (
-		<QueryProvider>
-		<div className="App">
-		<QueryContext.Provider value={{drug, setDrug, showTable, setShowTable}}>
-		<SearchBar />
-		{showTable ? <NferenceThing /> : null}
-		</QueryContext.Provider>
-		</div>
-		</QueryProvider>
-	);
+  return (
+    <QueryProvider
+      // Set the  minimal default state that our graphql query expects for
+      // the clinical trials table shown in SidebarLayout
+      // note that we preprend the values with `ct_` since we're passing id='ct' to
+      // the table
+      defaultState={{
+        ct_page: 1,
+        ct_sort: 'startDate',
+        ct_sort_dir: SORT_DESCENDING,
+      }}
+    >
+      <GlobalStylesProvider>
+        <AppBar />
+        <AppContent>
+          <Routes />
+        </AppContent>
+      </GlobalStylesProvider>
+    </QueryProvider>
+  )
 }
 
-export default App;
-
-
+export default App
